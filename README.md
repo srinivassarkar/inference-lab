@@ -12,20 +12,20 @@ Built for AI Infrastructure and Platform Engineers to diagnose prefill vs. decod
 flowchart TD
     Client["Inference Lab Console (Streamlit / Port 8501)"]
     
-    subgraph EngineGateway["Inference Engine Gateway"]
-        Proxy["OpenAI-Compatible HTTP / SSE Stream"]
+    subgraph EngineGateway ["Inference Engine Gateway"]
+        Proxy["OpenAI-Compatible HTTP & SSE Stream"]
         MetricsEndpoint["Prometheus Telemetry (/metrics)"]
         SlotsEndpoint["Slot Saturation Map (/slots)"]
     end
 
-    subgraph SiliconHardware["Hardware Compute Plane"]
+    subgraph SiliconHardware ["Hardware Compute Plane"]
         Metal["Apple Silicon M3 Ultra (Unified LPDDR5X - 800 GB/s)"]
         CUDA["NVIDIA CUDA Fleet (RTX 4090 / L4 / GTX 1050 Ti)"]
     end
 
-    Client -->|POST /chat/completions (SSE)| Proxy
-    Client -->|GET /metrics| MetricsEndpoint
-    Client -->|GET /slots| SlotsEndpoint
+    Client -->|"POST /chat/completions (SSE)"| Proxy
+    Client -->|"GET /metrics"| MetricsEndpoint
+    Client -->|"GET /slots"| SlotsEndpoint
     Proxy --> Metal
     Proxy --> CUDA
 ```
