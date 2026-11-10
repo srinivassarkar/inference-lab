@@ -455,7 +455,7 @@ def log_run(kind, cfg, params, s):
 
 with st.sidebar:
     st.title("Inference Lab")
-    st.caption("Universal Systems Engine Console")
+    st.caption("Universal Systems Engine Console · v1.0.0")
 
     with st.expander("Server Gateway", expanded=True):
         preset = st.selectbox("Engine Preset", list(PRESETS), index=0)

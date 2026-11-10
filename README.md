@@ -85,7 +85,7 @@ docker run -d \
   -p 8501:8501 \
   -e INFERENCE_BASE_URL="http://host.docker.internal:8080/v1" \
   -v $(pwd)/data:/app/data \
-  wizardxx7/inference-lab:latest
+  wizardxx7/inference-lab:1.0.0
 ```
 
 Open `http://localhost:8501` in your browser.
@@ -97,7 +97,7 @@ version: "3.8"
 
 services:
   inference-lab:
-    image: wizardxx7/inference-lab:latest
+    image: wizardxx7/inference-lab:1.0.0
     ports:
       - "8501:8501"
     environment:
